@@ -1,15 +1,15 @@
 // src/App.jsx
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar"; // ⬅️ Importa a navbar
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Projects from "./pages/projects";
+import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 
 function App() {
   return (
     <>
-      <Navbar /> {/* ⬅️ Navbar fora das rotas, aparece em todas as páginas */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -21,4 +21,3 @@ function App() {
 }
 
 export default App;
-

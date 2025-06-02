@@ -1,49 +1,30 @@
 // src/pages/Home.jsx
-import { motion } from "framer-motion";
+import StarsCanvas from "../components/StarsCanvas";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white flex flex-col justify-center items-center px-6">
-      <motion.h1
-        className="text-4xl md:text-6xl font-bold mb-6 text-center text-purple-300"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Hello, my name is Amanda
-      </motion.h1>
-
-      <motion.p
-        className="text-lg md:text-xl text-gray-300 max-w-2xl text-center mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 1 }}
-      >
-        Desenvolvedora criativa apaixonada por construir experiências digitais
-        com propósito, beleza e um toque de imaginação 🚀
-      </motion.p>
-
-      <motion.div
-        className="flex space-x-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 1 }}
-      >
+    <div className="relative w-full h-screen overflow-hidden bg-black text-white">
+      <StarsCanvas />
+      
+      {/* Conteúdo Central */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-4xl sm:text-6xl font-bold">
+          Hello, <br />
+          I am <span className="text-cyan-400">Amanda</span>,<br />
+          Front End Developer
+        </h1>
+        <p className="mt-4 text-lg text-gray-300 max-w-xl">
+          Creating immersive websites & blending creativity, design, and tech.
+        </p>
         <Link
-          to="/projects"
-          className="bg-purple-600 hover:bg-purple-500 text-white px-6 py-2 rounded-full transition-all duration-300 shadow-md hover:shadow-purple-500/40"
+          to="/about"
+          className="mt-8 px-6 py-2 border border-cyan-400 text-cyan-400 rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300"
         >
-          Projetos
+          Let’s get to know!
         </Link>
-        <Link
-          to="/contact"
-          className="border border-purple-400 text-purple-300 px-6 py-2 rounded-full hover:bg-purple-800 transition-all duration-300"
-        >
-          Contact me 
-        </Link>
-      </motion.div>
-    </section>
+      </div>
+    </div>
   );
 };
 

@@ -1,4 +1,3 @@
-// src/components/StarsCanvas.jsx
 import { useEffect, useRef } from "react";
 
 const StarsCanvas = () => {
@@ -6,7 +5,7 @@ const StarsCanvas = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d");
 
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -21,14 +20,14 @@ const StarsCanvas = () => {
     }));
 
     const animate = () => {
-      context.clearRect(0, 0, width, height);
-      context.fillStyle = "#ffffff";
-      stars.forEach(star => {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#fff";
+      stars.forEach((star) => {
         star.y += star.speed;
         if (star.y > height) star.y = 0;
-        context.beginPath();
-        context.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-        context.fill();
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fill();
       });
       requestAnimationFrame(animate);
     };
@@ -45,7 +44,12 @@ const StarsCanvas = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 z-0" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full z-0"
+    />
+  );
 };
 
 export default StarsCanvas;
